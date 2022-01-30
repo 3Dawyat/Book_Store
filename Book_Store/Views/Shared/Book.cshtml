@@ -1,0 +1,17 @@
+﻿@model TbBook
+<div class="col-lg-4 text-center">
+    <div class="box">
+        <div class="stars">
+            @for (int i = 1; i <= Model.BokRate; i++)
+            {
+                <i class="fas fa-star"></i>
+            }
+        </div>
+        <div class="img">
+            <img src="@string.Format("/Images/{0}",Model.BokImage)" class="d-block w-100" alt="">
+        </div>
+        <h3>@Model.BokName</h3>
+        <p>@Model.BokAuther</p>
+        <a asp-controller="Home" asp-action="Download" asp-route-FileName="@Model.BokFile">حمل الآن<i class="fas fa-arrow-left"></i></a>
+    </div>
+</div>

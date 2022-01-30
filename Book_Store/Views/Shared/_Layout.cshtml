@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>مكتبتي | @ViewBag.Title</title>
+
+    <!-- Google font -->
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />
+
+    <!-- normalize -->
+    <link type="text/css" rel="stylesheet" href="~/css/normalize.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="~/css/all.min.css">
+
+    <!--  psge Icon -->
+    <link rel="icon" href="~/Images/logo.png">
+
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="~/css/stylePage.css" />
+
+</head>
+
+<body>
+    <!--Start Navbar-->
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="home" asp-action="index">الصفحة الرئيسية <span class="sr-only">(current)</span></a>
+                    </li>
+                    @foreach (var dep in @ViewBag.Departments)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Page" asp-route-id="@dep.DepId">@dep.DepName</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <a class="navbar-brand" href="index.html">
+                <img src="~/Images/logo.png" style="width:65px;height:65px"  class="d-inline-block " alt="">مكتبتي
+            </a>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer class="text-center">
+        مشروع مكتبتي فرقة الرابعة 2022&copy;
+    </footer>
+    <script src="~/js/jQuery-min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@model DashbordModel
+<section class="main-side">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12  content-my-side text-right ">
+                <div class="computer">
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <th>أسم الكتاب</th>
+                                <th>الغلاف</th>
+                                <th>المؤلف</th>
+                                <th>التقييم</th>
+                                <th>القسم</th>
+                                <th>عملية</th>
+                            </tr>
+                            @foreach (var book in Model.Books)
+                            {
+                                <tr>
+                                    <td style="text-align:right;padding-right: 10px;">@book.BokName</td>
+                                    <td><img style="width:40px; height:40px" src="@string.Format("/Images/{0}",book.BokImage)" /></td>
+                                    <td>@book.BokAuther</td>
+                                    <td>@book.BokRate</td>
+                                    <td>@book.Dep.DepName</td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Formbook" asp-route-id="@book.BokId"><i class="fas fa-edit pc1"></i> </a>
+                                        <a asp-controller="home" asp-action="MoveBookToRecycle" asp-route-Id="@book.BokId"><i class="fas fa-trash-alt pc1"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                        <table>
+                            <tr>
+                                <th>القسم</th>
+                                <th>العنوان</th>
+                                <th>المحتوي</th>
+                                <th>القائل</th>
+                                <th>الشعار</th>
+                                <th>عملية</th>
+                            </tr>
+                            @foreach (var dep in Model.Departments)
+                            {
+                                <tr>
+                                    <td>@dep.DepName</td>
+                                    <td>@dep.Titel</td>
+                                    <td>
+                                        @dep.Description
+                                    </td>
+                                    <td>@dep.Saing</td>
+                                    <td><i class="@dep.Icon"></i></td>
+                                    <td>
+                                        <a asp-controller="Home" asp-action="FormDep" asp-route-id="@dep.DepId"><i class="fas fa-edit pc1"></i> </a>
+                                        <a asp-controller="home" asp-action="MoveDepToRecycle" asp-route-id="@dep.DepId"><i class="fas fa-trash-alt pc1"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

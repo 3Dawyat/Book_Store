@@ -1,0 +1,93 @@
+﻿@inject SignInManager<ApplicationUser> signIn
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>لوحة التحكم</title>
+    <!-- Google font -->
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />
+
+    <!-- normalize -->
+    <link type="text/css" rel="stylesheet" href="~/css/normalize.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="~/css/all.min.css">
+
+    <!--  psge Icon -->
+    <link rel="icon" href="~/Images/logo.png">
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="~/css/stylePage.css" />
+    <link href="~/css/style.css" rel="stylesheet">
+    <style>
+        table,
+        th,
+        td {
+            margin: auto;
+            border: 1px solid #0a969bdc;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            margin-top: 50px;
+            box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+        }
+
+        th,
+        td,
+        td a {
+            padding: 5px;
+        }
+
+        th {
+            color: white;
+            background-color: #0a969bdc;
+            padding: 12px 50px 12px 50px
+        }
+    </style>
+</head>
+
+<body style="background-color:white">
+    @if (signIn.IsSignedIn(User))
+    {
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Formbook">
+                    <img src="~/Images/logo.png" style="width:65px; height:65px" class="d-inline-block " alt="">اضافة كتاب
+                </a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Formdep">
+                    <img src="~/Images/logo.png" style="width:65px; height:65px" class="d-inline-block " alt="">اضافة قسم
+                </a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Recycle">
+                    <img src="~/Images/logo.png" style="width:65px; height:65px" class="d-inline-block " alt="">المحذوفات
+                </a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Dashbord">
+                    <img src="~/Images/logo.png" style="width:65px; height:65px" class="d-inline-block " alt="">الكتب
+                </a>
+                <a class="navbar-brand" asp-controller="User" asp-action="LogOut">
+                    <img src="~/Images/logo.png" style="width:65px; height:65px" class="d-inline-block " alt="">خروج
+                </a>
+            </div>
+        </nav>
+    }
+
+    @RenderBody()
+    @if (signIn.IsSignedIn(User))
+    {
+        <footer class="text-center">
+            مشروع مكتبتي فرقة الرابعة 2022&copy;
+        </footer>
+    }
+
+    <script src="~/js/jQuery-min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

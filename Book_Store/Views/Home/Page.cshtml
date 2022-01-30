@@ -1,0 +1,41 @@
+﻿@model PageModel
+<section class="section-one text-center">
+    <div class="container">
+        <div class="content-me">
+            <h2>@Model.Department.Titel</h2>
+            <p>@Model.Department.Description</p>
+            <span>@Model.Department.Saing</span>
+        </div>
+    </div>
+</section>
+<section class="main-side">
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-3 text-right">
+                <h2>الأقسام<i class="fas fa-search"></i></h2>
+                <ul>
+
+                    @foreach (var dep in Model.Departments)
+                    {
+                        <li><a asp-controller="home" asp-action="Page" asp-route-id="@dep.DepId"> @dep.DepName<i class="@dep.Icon"></i></a></li>
+                    }
+                </ul>
+                <div>
+                    <img src="~/Images/logo.png" class="d-block w-100" alt="">
+                </div>
+            </aside>
+            <div class="col-lg-9  content-my-side text-right ">
+                <div class="computer">
+                    <h2>@Model.Department.DepName<i class="@Model.Department.Icon"></i> </h2>
+                    <div class="row">
+                        @foreach (var book in Model.Books)
+                        {
+                            <partial name="Book" model="book" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

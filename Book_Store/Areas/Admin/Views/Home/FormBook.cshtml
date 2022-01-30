@@ -1,0 +1,52 @@
+﻿@model TbBook
+<div class="container" style="background-color:white">
+    <div class="row" style="background-color:white">
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+                <div class="box-root padding-top--24 flex-flex flex-direction--column"
+                     style="flex-grow: 1; z-index: 9;">
+                    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                        <h1>اضافة كتاب</h1>
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg" style="margin-bottom:20px">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <form method="post" role="form"  enctype="multipart/form-data" asp-controller="home" asp-action="SaveBook" >
+                                    <div class="field padding-bottom--24">
+                                        <label>اسم الكتاب</label>
+                                        <input asp-for="BokName"  autofocus required type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>اسم المؤلف</label>
+                                        <input  asp-for="BokAuther" required type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>الغلاف</label>
+                                        <input name="img" type="file">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>الكتاب</label>
+                                        <input name="file" type="file">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>التقييم</label>
+                                        <input asp-for="BokRate" maxlength="1" value="1" oninput="this.value=this.value.replace(/[^1-5]/g,'').replace(/(\.. *)\./g, '$1');" required type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>القسم</label>
+                                        <select asp-for="DepId" asp-items="@(new SelectList(ViewBag.Departments,"DepId","DepName"))">
+                                        </select>
+                                    </div>
+                                    <input hidden type="text" asp-for="BokId">
+                                    <div class="field">
+                                        <input type="submit" name="submit" value="حفظ">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

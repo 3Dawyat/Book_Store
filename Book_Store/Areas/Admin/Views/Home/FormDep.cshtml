@@ -1,0 +1,47 @@
+﻿@model TbDepartment
+<div class="container">
+    <div class="row">
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+                <div class="box-root padding-top--24 flex-flex flex-direction--column"
+                     style="flex-grow: 1; z-index: 9;">
+                    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                        <h1>اضافة قسم</h1>
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg" style="margin-bottom:20px">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <form asp-controller="home" asp-action="SaveDepartment" method="post" role="form">
+                                    <div class="field padding-bottom--24">
+                                        <label>اسم القسم</label>
+                                        <input asp-for="DepName" autofocus required type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>العنوان</label>
+                                        <input asp-for="Titel" required type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>المحتوي	</label>
+                                        <input asp-for="Description" type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>القائل</label>
+                                        <input asp-for="Saing" type="text">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label>الشعار</label>
+                                        <input asp-for="Icon" required type="text">
+                                    </div>
+                                    <input asp-for="DepId" hidden type="text" >
+                                    <div class="field">
+                                        <input type="submit" name="submit" value="حفظ">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model UserModel
+<div class="container">
+    <div class="row">
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+                <div class="box-root padding-top--24 flex-flex flex-direction--column"
+                     style="flex-grow: 1; z-index: 9;">
+                    <div style="padding-top:163px;" class="box-root flex-flex flex-justifyContent--center">
+                        <h1>تسجيل دخول</h1>
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <form method="post" id="stripe-login" asp-action="Loging"  role="form">
+                                    <div class="field padding-bottom--24">
+                                        <label for="email">البريد الإلكتروني</label>
+                                        <input autofocus required asp-for="Email" type="email">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="password">كلمة المرور</label>
+                                        <input asp-for="Pass" required type="password">
+                                        <input asp-for="ReturnUrl" type="hidden" value="">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <input type="submit" name="submit" value="دخول">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow:1; z-index: 9;">
+                    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                        <h1>تسجيل حساب جديد</h1>
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <form id="stripe-login" asp-action="SignUp" method="post" role="form">
+                                    <div class="field padding-bottom--24">
+                                        <label for="email">البريد الإلكتروني</label>
+                                        <input autofocus required asp-for="Email" type="email">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="password">كلمة المرور</label>
+                                        <input asp-for="Pass" required type="password">
+                                        <input asp-for="ReturnUrl" type="hidden" value="">
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <input type="submit" name="submit" value="دخول">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
